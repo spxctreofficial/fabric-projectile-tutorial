@@ -82,7 +82,7 @@ public class PackedSnowballEntity extends ThrownItemEntity {
 			((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.BLINDNESS, 20 * 3, 0))); // applies a status effect
 			((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 3, 2))); // applies a status effect
 			((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 20 * 3, 1))); // applies a status effect
-			entity.playSound(SoundEvents.AMBIENT_CAVE, 2F, 1F); // plays a sound for the entity hit only
+			entity.playSound(SoundEvents.BLOCK_SNOW_STEP, 2F, 1F); // plays a sound for the entity hit only
 		}
 	}
 

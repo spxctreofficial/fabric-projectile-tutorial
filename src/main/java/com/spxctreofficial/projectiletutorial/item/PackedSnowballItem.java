@@ -1,5 +1,6 @@
 package com.spxctreofficial.projectiletutorial.item;
 
+import com.spxctreofficial.projectiletutorial.entity.PackedSnowballEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.SnowballEntity;
 import net.minecraft.item.Item;
@@ -24,7 +25,7 @@ public class PackedSnowballItem extends Item {
 		Optionally, you can add a cooldown to your item's right-click use, similar to Ender Pearls.
 		*/
 		if (!world.isClient) {
-			SnowballEntity snowballEntity = new SnowballEntity(world, user);
+			PackedSnowballEntity snowballEntity = new PackedSnowballEntity(world, user);
 			snowballEntity.setItem(itemStack);
 			snowballEntity.setProperties(user, user.pitch, user.yaw, 0.0F, 1.5F, 0F);
 			world.spawnEntity(snowballEntity); // spawns entity
