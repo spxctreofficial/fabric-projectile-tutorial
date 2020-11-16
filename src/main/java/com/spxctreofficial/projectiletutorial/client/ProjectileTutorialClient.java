@@ -16,6 +16,7 @@ import net.minecraft.util.registry.Registry;
 import java.util.UUID;
 
 public class ProjectileTutorialClient implements ClientModInitializer {
+	public static final Identifier PacketID = new Identifier(ProjectileTutorialMod.ModID, "spawn_packet");
 	@Override
 	public void onInitializeClient() {
 		EntityRendererRegistry.INSTANCE.register(ProjectileTutorialMod.PackedSnowballEntityType, (dispatcher, context) ->
@@ -24,7 +25,7 @@ public class ProjectileTutorialClient implements ClientModInitializer {
 	}
 
 	public void receiveEntityPacket() {
-		ClientSidePacketRegistry.INSTANCE.register(new Identifier(ProjectileTutorialMod.ModID, "entity_packet"), (ctx, byteBuf) -> {
+		ClientSidePacketRegistry.INSTANCE.register(PacketID, (ctx, byteBuf) -> {
 			EntityType<?> et = Registry.ENTITY_TYPE.get(byteBuf.readVarInt());
 			UUID uuid = byteBuf.readUuid();
 			int entityId = byteBuf.readVarInt();

@@ -1,6 +1,7 @@
 package com.spxctreofficial.projectiletutorial.entity;
 
 import com.spxctreofficial.projectiletutorial.ProjectileTutorialMod;
+import com.spxctreofficial.projectiletutorial.client.ProjectileTutorialClient;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.Entity;
@@ -13,9 +14,11 @@ import net.minecraft.entity.mob.BlazeEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.Packet;
 import net.minecraft.particle.ItemStackParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -44,6 +47,11 @@ public class PackedSnowballEntity extends ThrownItemEntity {
 	@Override
 	protected Item getDefaultItem() {
 		return ProjectileTutorialMod.PackedSnowballItem;
+	}
+
+	@Override
+	public Packet createSpawnPacket() {
+		return EntitySpawnPacket.create(this, ProjectileTutorialClient.PacketID);
 	}
 
 	@Environment(EnvType.CLIENT)

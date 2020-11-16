@@ -20,10 +20,12 @@
   "entrypoints": {
     "main": [
       "com.spxctreofficial.projectiletutorial.ProjectileTutorialMod"
+    ],
+    "client": [
+      "com.spxctreofficial.projectiletutorial.client.ProjectileTutorialClient"
     ]
   },
   "mixins": [
-    "projectile-tutorial.mixins.json"
   ],
 
   "depends": {
